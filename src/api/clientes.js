@@ -15,3 +15,8 @@ export async function addClientes(data) {
   
   return response.data
 }
+
+export async function deleteCliente(id) {
+  const response = await axios.delete(`http://localhost:3000/clientes/${id}`)
+  return response.data
+}

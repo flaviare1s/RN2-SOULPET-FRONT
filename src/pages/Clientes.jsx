@@ -1,8 +1,9 @@
 import { Button, ButtonGroup, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getClientes } from "../api/clientes";
+import { deleteCliente, getClientes } from "../api/clientes";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader"
+import toast from "react-hot-toast";
 
 function Clientes() {
   const [clientes, setClientes] = useState(null)
@@ -11,6 +12,17 @@ function Clientes() {
     getClientes().then((dados) => {
       setClientes(dados)
     })
+  }
+
+  function deletarCliente(id) {
+    const deletar = confirm('Tem certeza que deseja excluir?')
+
+    if(deletar) {
+      deleteCliente(id).then((resposta) => {
+        toast.success(resposta.message)
+        carregarClientes()
+      })
+    }
   }
 
   useEffect(() => {
@@ -42,8 +54,10 @@ function Clientes() {
               <td>{cliente.telefone}</td>
               <td>
                 <ButtonGroup>
-                  <Button variant="outline-dark"><span className="material-symbols-outlined">edit</span></Button>
-                  <Button variant="outline-danger"><span className="material-symbols-outlined">delete</span></Button>
+                  <Button variant="outline-dark">
+                    <span className="material-symbols-outlined">edit</span></Button>
+                  <Button variant="outline-danger">
+                    <span className="material-symbols-outlined" onClick={() => deletarCliente(cliente.id)}>delete</span></Button>
                 </ButtonGroup>
               </td>
             </tr>
