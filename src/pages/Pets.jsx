@@ -5,7 +5,7 @@ function Pets() {
   return (
     <main className="mt-4 container">
       <h1>Pets</h1>
-      <Button as={Link} to="/clientes/novo">
+      <Button as={Link} variant="dark" to="/clientes/novo">
         Adicionar Cliente
       </Button>
       <hr />
