@@ -54,7 +54,7 @@ function Clientes() {
               <td>{cliente.telefone}</td>
               <td>
                 <ButtonGroup>
-                  <Button variant="outline-dark">
+                  <Button variant="outline-dark" as={Link} to={`/clientes/editar/${cliente.id}`}>
                     <span className="material-symbols-outlined">edit</span></Button>
                   <Button variant="outline-danger">
                     <span className="material-symbols-outlined" onClick={() => deletarCliente(cliente.id)}>delete</span></Button>
