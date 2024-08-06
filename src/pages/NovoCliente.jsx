@@ -21,7 +21,7 @@ function NovoCliente() {
       navigate("/clientes")
     }).catch((err) => {
       // Caso ocorra um erro, usamos catch para tratar
-      console.log(err)
+      console.log(err.response.data.message)
     })
     
   }
