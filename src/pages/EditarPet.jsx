@@ -26,7 +26,7 @@ function EditarPet() {
         toast.success(resposta.message);
         navigate("/pets");
       })
-      .catch((err) => {
+      .catch(() => {
         navigate("/pets");
       });
   }
