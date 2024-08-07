@@ -18,6 +18,9 @@ function EditarPet() {
   const { id } = useParams();
 
   function atualizarPet(data) {
+    if (data.dataNasc == "") {
+      data.dataNasc = null;
+    }
     updatePet(id, data)
       .then((resposta) => {
         toast.success(resposta.message);
