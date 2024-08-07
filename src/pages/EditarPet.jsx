@@ -27,7 +27,7 @@ function EditarPet() {
         navigate("/pets");
       })
       .catch((err) => {
-        toast.error(err.response.data.message);
+        navigate("/pets");
       });
   }
 
