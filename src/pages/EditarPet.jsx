@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { getPet, updatePet } from "../api/pets";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
-import { getClientes } from "../api/clientes";
+import { useEffect } from "react";
 
 function EditarPet() {
   const {
