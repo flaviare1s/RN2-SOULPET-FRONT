@@ -86,7 +86,7 @@ function NovoPet() {
           />
         </div>
         <div>
-          <select id="clienteId" className="form-select mt-2" {...register("clienteId")} aria-label="Default select example">
+          <select id="clienteId" className="form-select mt-2" {...register("clienteId", { required: true, valueAsNumber: true })} aria-label="Default select example">
             <option value="">Selecione um cliente</option>
             {clientes && clientes.map((cliente) => {
               return (
